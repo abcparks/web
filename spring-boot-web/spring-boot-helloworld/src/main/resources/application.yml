@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_spring_boot?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+car:
+  brand: 宝马
+  price: 500000
+
+# yml语法
+person:
+  username: zhangsan
+  boss: true
+  birth: 1996/12/18 # 默认日期格式(/)
+  age: 28
+  #interests: [篮球,足球]
+  interests:
+    - 篮球
+    - 足球
+  animals: [ 阿猫,阿狗 ]
+  score: { english: 80, math: 90 }
+  salarys:
+    - 9999.98
+    - 9999.99
+  #  pet:
+  #    name: 阿狗
+  #    weight: 99.99
+  allPets:
+    sick:
+      - { name: 阿狗, weight: 99.99 }
+      - name: 阿猫
+        weight: 88.88
+      - name: 啊虫
+        weight: 77.77
+    health:
+      - { name: 阿花, weight: 199.99 }
+      - { name: 阿明, weight: 199.99 }
