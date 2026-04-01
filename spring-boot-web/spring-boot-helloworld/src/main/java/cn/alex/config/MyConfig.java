@@ -3,6 +3,8 @@ package cn.alex.config;
 import cn.alex.bean.Book;
 import cn.alex.bean.Pet;
 import cn.alex.bean.User;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -37,7 +39,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
     2 把这个Car组件自动注册到容器中
     适用于第三方类中, 没有标注@Component进行配置绑定
  */
-public class MyConfig {
+public class MyConfig implements InitializingBean, DisposableBean {
 
     @Bean
     public Book book() {
@@ -61,4 +63,15 @@ public class MyConfig {
     public Pet tomcat() {
         return new Pet("tomcat");
     }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("创建bean");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("销毁bean");
+    }
+
 }
